@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Font Size</title>
+    <style>
+        #medium{font-size:medium;}
+        #16px{font-size:16px;}
+        #large{font-size:large;}
+        #2em{font-size:2em;}
+
+        #article1{font-size: 30px;}
+        #article2{font-size: smaller;}
+        #article3{font-size: larger;}
+    </style>
+</head>
+<body>
+    크기를 지정하지 않았을 때 (기본크기)의 텍스트<br>
+
+    <p id="medium">medium 크기의 텍스트</p>
+    <p id="16px">16px 크기의 텍스트</p>
+    <p id="large">large 크기의 텍스트</p>
+    <p id="2em">2em 크기의 텍스트</p>
+
+    <article id="article1">
+        <article id="article2">
+            부모의 크기보다 한 단계 작게(smaller)
+        </article>
+        기본 크기
+        <article id="aritcle3">
+            부모의 크기보다 한 단계 크게(larger)
+        </article>
+    </article>
+
+</body>
+</html>
