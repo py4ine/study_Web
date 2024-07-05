@@ -1,4 +1,4 @@
-// 제어문 - 분기문
+// 제어문 - 분기문 if
  // 단순 if
 let age = parseInt(prompt('나이:'));
 let isAdult = false;
