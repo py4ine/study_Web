@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <script>
+        function table_prompt() {
+            let rowln = parseInt(prompt("테이블의 열 수 입력:"));
+            let columnln = parseInt(prompt("테이블의 행 수 입력:"));
+
+            /* document.write는 기존 HTML을 덮어쓸 수 있어 주의가 필요
+            document.write('<table border="5">');  // html문서에 테이블 생성, border로 테이블두깨 설정
+            for (let i=0; i < rowln; ++i) {  // 행 생성
+                document.write('<tr>');
+                for (let j=0; j < columnln; ++j) {  // 열 생성
+                    document.write('<td>');
+                    document.write(i + "," + j);
+                    document.write('</td>');
+                }
+                document.write('</tr>');
+
+            }
+            document.write('</table>');  // 테이블 태그 닫기 */
+
+            // DOM 조작 메서드를 사용하여 테이블 생성 방법
+            
+            // 테이블 요소 생성
+            const table = document.createElement('table');
+            table.style.border = '1px solid black';
+            table.style.borderCollapse = 'collapse';
+            table.style.width = '100%';
+
+            // 테이블 행, 열 생성
+            for (let i=0; i<rowln; ++i) {
+                const table_row = document.createElement('tr');  // 가로줄 역할
+                for (let j=0; j<columnln; ++j) {
+                    const table_data = document.createElement('td');  // 셀 만드는 역할
+                    table_data.style.border = '1px solid black';
+                    table_data.style.padding = '5px';
+                    // table_data.textContent = `${i}, ${j}`;  // 셀안에 들어갈 내용
+                    table_row.appendChild(table_data);  // 행에 셀 추가
+                }
+                table.appendChild(table_row);  // 테이블에 행 추가
+            }
+
+            // 테이블을 문서의 특정 위치에 추가
+            const container = document.getElementById('tableContainer');
+            container.innerHTML = '';  // 이전 내용 제거
+            container.appendChild(table);  // 테이블 추가
+
+        }
+
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     // 버튼 클릭 이벤트 리스너 추가
+        //     document.getElementById('createTableButton').addEventListener('click', createTable); 
+        // });
+    </script>
+</head>
+<body>
+    <h1> 자동 테이블 만들기 </h1>
+    <h5>테이블 생성을 누르면 prompt로 테이블의 열과 행의 수를 입력 받음</h5>
+    <h5>입력 받은 값에 맞는 테이블을 표시</h5>
+    <h5>스타일 속성을 지정하려는 경우 인라인으로 직접 지정해야 적용됨</h5>
+    <h5>변수는 let or const로 선언</h5>
+
+    <input type="button" id='btn' value='테이블 생성' onclick="table_prompt()" />
+    <div id="tableContainer"></div>
+
+</body>
+
+</html>
