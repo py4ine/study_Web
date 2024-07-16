@@ -28,7 +28,7 @@
             // 테이블 요소 생성
             const table = document.createElement('table');
             table.style.border = '1px solid black';
-            table.style.borderCollapse = 'collapse';
+            table.style.borderCollapse = 'collapse';  // 테이블의 외곽선과 셀의 경계선을 하나의 선으로
             table.style.width = '100%';
 
             // 테이블 행, 열 생성
@@ -38,6 +38,7 @@
                     const table_data = document.createElement('td');  // 셀 만드는 역할
                     table_data.style.border = '1px solid black';
                     table_data.style.padding = '5px';
+                    // table_data.style.height = '50px';  // 셀 높이 지정
                     // table_data.textContent = `${i}, ${j}`;  // 셀안에 들어갈 내용
                     table_row.appendChild(table_data);  // 행에 셀 추가
                 }
