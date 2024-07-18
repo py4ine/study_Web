@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단 계산기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+            width: calc(100% - 35px);
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            width: calc(25% - 20px);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>간단 계산기</h1>
+        <input type="number" id="num1" placeholder="숫자1 입력">
+        <input type="number" id="num2" placeholder="숫자2 입력">
+        <div>
+            <button id="add">+</button>
+            <button id="sub">-</button>
+            <button id="mul">*</button>
+            <button id="div">/</button>
+        </div>
+        <div>
+            <h2>결과: <span id="result">0</span></h2>
+        </div>
+        <div>
+            <h2>연산횟수: <span id="count">0</span></h2>
+        </div>
+    </div>
+    <script>
+        let count = 0;
+
+        const num1Element = document.getElementById("num1");
+        const num2Element = document.getElementById("num2");
+        const resultElement = document.getElementById("result");
+        const countElement = document.getElementById("count");
+
+        const updateCount = () => {
+            count += 1;
+            countElement.textContent = count;
+        };
+
+        document.getElementById("add").addEventListener('click', () => {
+            const num1 = parseFloat(num1Element.value);
+            const num2 = parseFloat(num2Element.value);
+            resultElement.textContent = num1 + num2;
+            updateCount();
+        });
+
+        document.getElementById("sub").addEventListener('click', () => {
+            const num1 = parseFloat(num1Element.value);
+            const num2 = parseFloat(num2Element.value);
+            resultElement.textContent = num1 - num2;
+            updateCount();
+        });
+
+        document.getElementById("mul").addEventListener('click', () => {
+            const num1 = parseFloat(num1Element.value);
+            const num2 = parseFloat(num2Element.value);
+            resultElement.textContent = num1 * num2;
+            updateCount();
+        });
+
+        document.getElementById("div").addEventListener('click', () => {
+            const num1 = parseFloat(num1Element.value);
+            const num2 = parseFloat(num2Element.value);
+            if (num2 != 0) {
+                resultElement.textContent = num1 / num2;
+                updateCount();
+            } else {
+                resultElement.textContent = "0으로 나눌수 없습니다."
+            }
+        });
+    </script>
+</body>
+</html>
