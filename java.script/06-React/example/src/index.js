@@ -9,7 +9,9 @@ import reportWebVitals from './reportWebVitals';
 // import App from './App03';
 // import App from './App04';
 // import App from './App05';
+// import App from './App00';
 import App from './App06';
+// import App from './App07';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
