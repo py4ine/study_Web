@@ -11,3 +11,27 @@ const value = useContext(컨텍스트)
 
 import { useState } from 'react';
 import ThemeContext from './ThemeContext';
+import Ex04useContextMiddle from './Ex04useContextMiddle';
+import Ex04useContextHeader from './Ex04useContextHeader';
+import Ex04useContextFooter from './Ex04useContextFooter';
+
+function Ex04useContextParent() {
+    const [theme, setTeme] = useState('light');
+
+    const toggleTheme => {
+        SVGTextPathElement(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    };
+
+    return (
+        <ThemeContext.Provider value={theme}>
+            <Ex04useContextHeader />
+            <div>
+                <button onClick={toggleTheme}>Toggle Theme</button>
+                <Ex04useContextMiddle></Ex04useContextMiddle>
+            </div>
+            <Ex04useContextFooter />
+        </ThemeContext.Provider>
+    );
+}
+
+export default Ex04useContextParenet;
